@@ -1,0 +1,32 @@
+git config --global user.name NicolasCastro08
+git config --global user.email nicolasferreia@gmail.com
+
+-- Preparação do Ambiente para desenvolvimento com Angular
+Node, NPM, Angular 
+node -v
+npm -v
+ng version
+
+-- Remove as políticas de segurança de execução de scripts do windows
+*
+
+-- instalar o Angular Global 
+npm install -g @angular/cli
+
+-- Resolução de Problemas de execução
+npm config get prefix
+-- Copiar o caminha que o comando trouxe e adicionar no
+-- Path das variáveis do sistema do windows
+
+-- Croar um projeto angular
+ng new todo-angular --routing=false --style=css --skip-tests --standalone --ssr=false --file-name-style-guide=2025 --defaults
+
+-- Para executar o projeto 
+cd todo-angular
+ng serve --open
+
+npx expo start --tunnel
+
+
+SALA:
+https://github.com/3Mtec2026B
