@@ -30,3 +30,9 @@ npx expo start --tunnel
 
 SALA:
 https://github.com/3Mtec2026B
+
+-- Para criar componentes (não poder estar executando o projeto)
+ng generate component components/todo-form --skip-tests
+ng generate component components/todo-list --skip-tests
+ng generate component components/todo-item --skip-tests
+ng generate service services/todo-store --skip-tests
