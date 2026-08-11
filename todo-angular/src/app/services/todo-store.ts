@@ -11,7 +11,7 @@ export class TodoStore {
 
     readonly todos = this.todosState.asReadonly();
     readonly total = computed(() =>  this.todosState().length);
-    readonly completed = computed =(
+    readonly completed = computed(
         () => this.todosState().filter((todo) => todo.completed).length
     );
     readonly pending = computed(() => this.total() - this.completed());
@@ -29,10 +29,25 @@ export class TodoStore {
             completed: false,
         };
 
-        this.updateTodos([...this.todosState(), newTodo])
+        this.updatedTodos([...this.todosState(), newTodo])
     }
 
-    private updateTodos(todos: Todo[]): void {
+    toggle(id: number): void {
+        const updatedTodos = this.todosState().map((todo) =>
+            todo.id == id
+             ?{ ...todo, completed: !todo.completed }
+             : todo
+        );
+        this.updatedTodos(updatedTodos);
+    }
+
+    remove(id: number): void {
+        const updatedTodos = this.todosState().filter((todo) => todo.id != id);
+        this.updatedTodos(updatedTodos);
+    }
+
+
+    private updatedTodos(todos: Todo[]): void {
         this.todosState.set(todos);
         localStorage.setItem(this.storageKey, JSON.stringify(todos));
     }
